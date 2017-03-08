@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		2CE162F41E6FF0A400C3B69B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F31E6FF0A400C3B69B /* main.m */; };
 		2CE162F71E6FF0A400C3B69B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F61E6FF0A400C3B69B /* AppDelegate.m */; };
-		2CE162FA1E6FF0A400C3B69B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F91E6FF0A400C3B69B /* ViewController.m */; };
 		2CE162FD1E6FF0A400C3B69B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE162FB1E6FF0A400C3B69B /* Main.storyboard */; };
 		2CE162FF1E6FF0A400C3B69B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE162FE1E6FF0A400C3B69B /* Assets.xcassets */; };
 		2CE163021E6FF0A400C3B69B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE163001E6FF0A400C3B69B /* LaunchScreen.storyboard */; };
+		2CE1630B1E6FF0F000C3B69B /* INCQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1630A1E6FF0F000C3B69B /* INCQuizViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +20,12 @@
 		2CE162F31E6FF0A400C3B69B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CE162F51E6FF0A400C3B69B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2CE162F61E6FF0A400C3B69B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2CE162F81E6FF0A400C3B69B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2CE162F91E6FF0A400C3B69B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2CE162FC1E6FF0A400C3B69B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CE162FE1E6FF0A400C3B69B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CE163011E6FF0A400C3B69B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CE163031E6FF0A400C3B69B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CE163091E6FF0F000C3B69B /* INCQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCQuizViewController.h; sourceTree = "<group>"; };
+		2CE1630A1E6FF0F000C3B69B /* INCQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCQuizViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +60,13 @@
 			children = (
 				2CE162F51E6FF0A400C3B69B /* AppDelegate.h */,
 				2CE162F61E6FF0A400C3B69B /* AppDelegate.m */,
-				2CE162F81E6FF0A400C3B69B /* ViewController.h */,
-				2CE162F91E6FF0A400C3B69B /* ViewController.m */,
 				2CE162FB1E6FF0A400C3B69B /* Main.storyboard */,
 				2CE162FE1E6FF0A400C3B69B /* Assets.xcassets */,
 				2CE163001E6FF0A400C3B69B /* LaunchScreen.storyboard */,
 				2CE163031E6FF0A400C3B69B /* Info.plist */,
 				2CE162F21E6FF0A400C3B69B /* Supporting Files */,
+				2CE163091E6FF0F000C3B69B /* INCQuizViewController.h */,
+				2CE1630A1E6FF0F000C3B69B /* INCQuizViewController.m */,
 			);
 			path = "Grocer Quiz";
 			sourceTree = "<group>";
@@ -150,9 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE162FA1E6FF0A400C3B69B /* ViewController.m in Sources */,
 				2CE162F71E6FF0A400C3B69B /* AppDelegate.m in Sources */,
 				2CE162F41E6FF0A400C3B69B /* main.m in Sources */,
+				2CE1630B1E6FF0F000C3B69B /* INCQuizViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

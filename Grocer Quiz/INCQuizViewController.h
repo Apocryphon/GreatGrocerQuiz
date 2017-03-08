@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  INCQuizViewController.h
 //  Grocer Quiz
 //
 //  Created by Richard Yeh on 3/7/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface INCQuizViewController : UIViewController
 
 @end
-
