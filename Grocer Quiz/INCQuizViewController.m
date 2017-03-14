@@ -9,6 +9,8 @@
 #import "INCQuizViewController.h"
 #import "INCQuestion.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 @interface INCQuizViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
@@ -21,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @property (assign, nonatomic) BOOL isQuizInProgress;
+@property (assign, nonatomic) int currentQuestionNumber;
 
 @property (strong, nonatomic) NSMutableArray *questionsArray;
 
@@ -34,7 +37,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-  [self getQuestions];
+  [self retrieveQuestions];
+}
+
+- (void)retrieveQuestions {
+  NSString *questionsFilePath = [[NSBundle mainBundle] pathForResource:@"zquestions"
+                                                                ofType:@"json"];
+  NSData *jsonData = [NSData dataWithContentsOfFile:questionsFilePath];
+  NSDictionary *jsonQuestionsDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                          options:0
+                                                                            error:nil];
+  self.questionsArray = [NSMutableArray arrayWithCapacity:[jsonQuestionsDictionary count]];
+  
+  for (NSString *itemName in jsonQuestionsDictionary) {
+    INCQuestion *newQuestion = [[INCQuestion alloc] initWithName:itemName
+                                                        urlArray:jsonQuestionsDictionary[itemName]];
+    [self.questionsArray addObject:newQuestion];
+  }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,20 +71,20 @@
 }
 */
 
-- (void)getQuestions {
-  NSString *questionsFilePath = [[NSBundle mainBundle] pathForResource:@"zquestions"
-                                                                ofType:@"json"];
-  NSData *jsonData = [NSData dataWithContentsOfFile:questionsFilePath];
-  NSDictionary *jsonQuestionsDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                 options:0
-                                                                   error:nil];
-  self.questionsArray = [NSMutableArray arrayWithCapacity:[jsonQuestionsDictionary count]];
+- (void)updateForQuestion {
+  INCQuestion *currentQuestion = self.questionsArray[self.currentQuestionNumber-1];
+  self.promptLabel.text = [NSString stringWithFormat:@"Select the %@", currentQuestion.itemName];
+  [self.answerView1 sd_setImageWithURL:[NSURL URLWithString:currentQuestion.imageUrlArray[0]]
+                      placeholderImage:[UIImage imageNamed:@"groceries-placeholder.png"]];
+  [self.answerView2 sd_setImageWithURL:[NSURL URLWithString:currentQuestion.imageUrlArray[1]]
+                      placeholderImage:[UIImage imageNamed:@"groceries-placeholder.png"]];
+  [self.answerView3 sd_setImageWithURL:[NSURL URLWithString:currentQuestion.imageUrlArray[2]]
+                      placeholderImage:[UIImage imageNamed:@"groceries-placeholder.png"]];
+  [self.answerView4 sd_setImageWithURL:[NSURL URLWithString:currentQuestion.imageUrlArray[3]]
+                      placeholderImage:[UIImage imageNamed:@"groceries-placeholder.png"]];
+
+
   
-  for (NSString *itemName in jsonQuestionsDictionary) {
-    INCQuestion *newQuestion = [[INCQuestion alloc] initWithName:itemName
-                                                        urlArray:jsonQuestionsDictionary[itemName]];
-    [self.questionsArray addObject:newQuestion];
-  }
 }
 
 
@@ -78,6 +97,9 @@
   self.answerView4.hidden = NO;
   self.promptLabel.hidden = NO;
   self.submitButton.hidden = NO;
+  self.currentQuestionNumber = 1;
+  
+  [self updateForQuestion];
 }
 
 

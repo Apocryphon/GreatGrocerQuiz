@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6931211E77DC7E004C2AEE /* groceries-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */; };
 		2CE162F41E6FF0A400C3B69B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F31E6FF0A400C3B69B /* main.m */; };
 		2CE162F71E6FF0A400C3B69B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F61E6FF0A400C3B69B /* AppDelegate.m */; };
 		2CE162FD1E6FF0A400C3B69B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE162FB1E6FF0A400C3B69B /* Main.storyboard */; };
@@ -15,9 +16,12 @@
 		2CE1630B1E6FF0F000C3B69B /* INCQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1630A1E6FF0F000C3B69B /* INCQuizViewController.m */; };
 		2CE163111E763AE700C3B69B /* zquestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE163101E763AE700C3B69B /* zquestions.json */; };
 		2CE163141E76568400C3B69B /* INCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE163131E76568400C3B69B /* INCQuestion.m */; };
+		C5077DEF1927D6801B0F65BB /* libPods-Grocer Quiz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80EC0671687F4326C8C8D63 /* libPods-Grocer Quiz.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		175D063C11B643353F421BC8 /* Pods-Grocer Quiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grocer Quiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grocer Quiz/Pods-Grocer Quiz.release.xcconfig"; sourceTree = "<group>"; };
+		2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groceries-placeholder.png"; sourceTree = "<group>"; };
 		2CE162EF1E6FF0A400C3B69B /* Grocer Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocer Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE162F31E6FF0A400C3B69B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CE162F51E6FF0A400C3B69B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,6 +35,8 @@
 		2CE163101E763AE700C3B69B /* zquestions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zquestions.json; sourceTree = "<group>"; };
 		2CE163121E76568400C3B69B /* INCQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INCQuestion.h; path = Model/INCQuestion.h; sourceTree = "<group>"; };
 		2CE163131E76568400C3B69B /* INCQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INCQuestion.m; path = Model/INCQuestion.m; sourceTree = "<group>"; };
+		5159416BE114F01C98CDC51F /* Pods-Grocer Quiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grocer Quiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grocer Quiz/Pods-Grocer Quiz.debug.xcconfig"; sourceTree = "<group>"; };
+		D80EC0671687F4326C8C8D63 /* libPods-Grocer Quiz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Grocer Quiz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5077DEF1927D6801B0F65BB /* libPods-Grocer Quiz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +56,8 @@
 			children = (
 				2CE162F11E6FF0A400C3B69B /* Grocer Quiz */,
 				2CE162F01E6FF0A400C3B69B /* Products */,
+				7D71E8ED340C3637374B4FC1 /* Pods */,
+				AA81C2A60212AA013A5BCDAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +80,7 @@
 				2CE162FE1E6FF0A400C3B69B /* Assets.xcassets */,
 				2CE163001E6FF0A400C3B69B /* LaunchScreen.storyboard */,
 				2CE163031E6FF0A400C3B69B /* Info.plist */,
+				2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */,
 				2CE162F21E6FF0A400C3B69B /* Supporting Files */,
 			);
 			path = "Grocer Quiz";
@@ -103,6 +113,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		7D71E8ED340C3637374B4FC1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5159416BE114F01C98CDC51F /* Pods-Grocer Quiz.debug.xcconfig */,
+				175D063C11B643353F421BC8 /* Pods-Grocer Quiz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA81C2A60212AA013A5BCDAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D80EC0671687F4326C8C8D63 /* libPods-Grocer Quiz.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE163061E6FF0A400C3B69B /* Build configuration list for PBXNativeTarget "Grocer Quiz" */;
 			buildPhases = (
+				4ED8F72D9BF7AC39E1DA897E /* [CP] Check Pods Manifest.lock */,
 				2CE162EB1E6FF0A400C3B69B /* Sources */,
 				2CE162EC1E6FF0A400C3B69B /* Frameworks */,
 				2CE162ED1E6FF0A400C3B69B /* Resources */,
+				0C4C1947C1808DF632B1BD59 /* [CP] Embed Pods Frameworks */,
+				4D463FDEEA0EF7EFB813DA77 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE163111E763AE700C3B69B /* zquestions.json in Resources */,
+				2C6931211E77DC7E004C2AEE /* groceries-placeholder.png in Resources */,
 				2CE163021E6FF0A400C3B69B /* LaunchScreen.storyboard in Resources */,
 				2CE162FF1E6FF0A400C3B69B /* Assets.xcassets in Resources */,
 				2CE162FD1E6FF0A400C3B69B /* Main.storyboard in Resources */,
@@ -169,6 +200,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C4C1947C1808DF632B1BD59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grocer Quiz/Pods-Grocer Quiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D463FDEEA0EF7EFB813DA77 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grocer Quiz/Pods-Grocer Quiz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ED8F72D9BF7AC39E1DA897E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CE162EB1E6FF0A400C3B69B /* Sources */ = {
@@ -294,6 +373,7 @@
 		};
 		2CE163071E6FF0A400C3B69B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5159416BE114F01C98CDC51F /* Pods-Grocer Quiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Grocer Quiz/Info.plist";
@@ -305,6 +385,7 @@
 		};
 		2CE163081E6FF0A400C3B69B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 175D063C11B643353F421BC8 /* Pods-Grocer Quiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Grocer Quiz/Info.plist";
@@ -333,6 +414,7 @@
 				2CE163081E6FF0A400C3B69B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
