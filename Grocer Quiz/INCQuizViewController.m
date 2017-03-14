@@ -7,8 +7,11 @@
 //
 
 #import "INCQuizViewController.h"
+#import "INCQuestion.h"
 
 @interface INCQuizViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @property (weak, nonatomic) IBOutlet UIImageView *answerView1;
 @property (weak, nonatomic) IBOutlet UIImageView *answerView2;
 @property (weak, nonatomic) IBOutlet UIImageView *answerView3;
@@ -17,16 +20,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *promptLabel;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
+@property (assign, nonatomic) BOOL isQuizInProgress;
+
+@property (strong, nonatomic) NSMutableArray *questionsArray;
+
 @end
 
 @implementation INCQuizViewController
 
-//TODO: Stat Quiz button
-//TODO: two minute timer
+//TODO: two minute timer + countdown clock
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+  [self getQuestions];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,5 +51,34 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)getQuestions {
+  NSString *questionsFilePath = [[NSBundle mainBundle] pathForResource:@"zquestions"
+                                                                ofType:@"json"];
+  NSData *jsonData = [NSData dataWithContentsOfFile:questionsFilePath];
+  NSDictionary *jsonQuestionsDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                 options:0
+                                                                   error:nil];
+  self.questionsArray = [NSMutableArray arrayWithCapacity:[jsonQuestionsDictionary count]];
+  
+  for (NSString *itemName in jsonQuestionsDictionary) {
+    INCQuestion *newQuestion = [[INCQuestion alloc] initWithName:itemName
+                                                        urlArray:jsonQuestionsDictionary[itemName]];
+    [self.questionsArray addObject:newQuestion];
+  }
+}
+
+
+- (IBAction)startQuiz:(id)sender {
+  self.isQuizInProgress = YES;
+  self.startButton.hidden = YES;
+  self.answerView1.hidden = NO;
+  self.answerView2.hidden = NO;
+  self.answerView3.hidden = NO;
+  self.answerView4.hidden = NO;
+  self.promptLabel.hidden = NO;
+  self.submitButton.hidden = NO;
+}
+
 
 @end
