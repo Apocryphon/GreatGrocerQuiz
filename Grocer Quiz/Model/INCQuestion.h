@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface INCQuestion : NSObject
+@interface INCQuestion : NSObject <NSCoding>
 @property (copy, nonatomic) NSString *itemName;
 @property (copy, nonatomic) NSArray *imageUrlArray;
 @property (copy, nonatomic) NSString *answerUrlString;
 
 - (id)initWithName:(NSString *)name urlArray:(NSArray *)urls;
+- (id)initWithCoder:(NSCoder *)coder;
+- (void)encodeWithCoder:(NSCoder *)coder;
 @end

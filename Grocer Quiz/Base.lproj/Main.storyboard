@@ -24,24 +24,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name, please" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCG-Ym-9uJ">
+                                <rect key="frame" x="117.5" y="258" width="140.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grocer Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kX1-aM-qXo">
+                                <rect key="frame" x="87.5" y="299" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="NOD-he-zBK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Item" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZf-nA-QP5">
                                 <rect key="frame" x="20" y="303.5" width="335" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZq-9L-KGz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZq-9L-KGz">
                                 <rect key="frame" x="163" y="344" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitAnswer:" destination="dfI-89-nrp" eventType="touchUpInside" id="NGA-7F-cFf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm9-LV-aQQ">
-                                <rect key="frame" x="170.5" y="318.5" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startQuiz:" destination="dfI-89-nrp" eventType="touchUpInside" id="VLp-7a-lgg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8n-9Z-VCm">
@@ -87,24 +95,26 @@
                             <constraint firstItem="cvO-8m-nyQ" firstAttribute="bottom" secondItem="xNR-zx-W1G" secondAttribute="bottom" id="2S4-nw-J40"/>
                             <constraint firstItem="IiY-1u-k34" firstAttribute="height" secondItem="L8n-9Z-VCm" secondAttribute="height" id="8A5-oV-O5H"/>
                             <constraint firstItem="xNR-zx-W1G" firstAttribute="leading" secondItem="Kdi-zj-qXG" secondAttribute="leading" id="AgE-lC-EaG"/>
-                            <constraint firstItem="Jm9-LV-aQQ" firstAttribute="centerY" secondItem="Kdi-zj-qXG" secondAttribute="centerY" id="BMP-hZ-ysa"/>
+                            <constraint firstItem="kX1-aM-qXo" firstAttribute="top" secondItem="XCG-Ym-9uJ" secondAttribute="bottom" constant="20" id="Erz-dB-J9f"/>
                             <constraint firstItem="WZf-nA-QP5" firstAttribute="leading" secondItem="Kdi-zj-qXG" secondAttribute="leading" constant="20" id="ISU-SO-p7J"/>
                             <constraint firstItem="xNR-zx-W1G" firstAttribute="width" secondItem="L8n-9Z-VCm" secondAttribute="width" id="Its-1P-aos"/>
                             <constraint firstAttribute="bottomMargin" secondItem="xNR-zx-W1G" secondAttribute="bottom" constant="20" id="PRC-BH-dxg"/>
                             <constraint firstItem="cvO-8m-nyQ" firstAttribute="width" secondItem="xNR-zx-W1G" secondAttribute="width" id="QXk-hl-Ga7"/>
                             <constraint firstAttribute="trailing" secondItem="WZf-nA-QP5" secondAttribute="trailing" constant="20" id="R0X-bt-tf5"/>
+                            <constraint firstItem="XCG-Ym-9uJ" firstAttribute="centerX" secondItem="Kdi-zj-qXG" secondAttribute="centerX" id="RMM-q0-eEz"/>
                             <constraint firstItem="IiY-1u-k34" firstAttribute="width" secondItem="L8n-9Z-VCm" secondAttribute="width" id="S9V-44-PcL"/>
                             <constraint firstItem="cvO-8m-nyQ" firstAttribute="leading" secondItem="xNR-zx-W1G" secondAttribute="trailing" constant="-1" id="Vrk-Wp-ADZ"/>
                             <constraint firstItem="IiY-1u-k34" firstAttribute="top" secondItem="L8n-9Z-VCm" secondAttribute="top" id="YnX-IK-yAY"/>
                             <constraint firstItem="IiY-1u-k34" firstAttribute="leading" secondItem="L8n-9Z-VCm" secondAttribute="trailing" constant="-1" id="aeg-iN-uXx"/>
                             <constraint firstItem="L8n-9Z-VCm" firstAttribute="leading" secondItem="Kdi-zj-qXG" secondAttribute="leading" id="eGx-b8-2BH"/>
                             <constraint firstItem="WZf-nA-QP5" firstAttribute="centerX" secondItem="Kdi-zj-qXG" secondAttribute="centerX" id="gI0-HQ-qrV"/>
+                            <constraint firstItem="kX1-aM-qXo" firstAttribute="centerX" secondItem="Kdi-zj-qXG" secondAttribute="centerX" id="irQ-11-4KQ"/>
                             <constraint firstItem="WZf-nA-QP5" firstAttribute="centerY" secondItem="Kdi-zj-qXG" secondAttribute="centerY" constant="-20" id="jMN-Hx-kpz"/>
                             <constraint firstItem="kZq-9L-KGz" firstAttribute="top" secondItem="WZf-nA-QP5" secondAttribute="bottom" constant="20" id="lDw-iV-NRv"/>
                             <constraint firstItem="kZq-9L-KGz" firstAttribute="centerX" secondItem="Kdi-zj-qXG" secondAttribute="centerX" id="mnv-oK-YLb"/>
                             <constraint firstItem="L8n-9Z-VCm" firstAttribute="top" secondItem="HxK-lZ-ugA" secondAttribute="bottom" constant="8" id="naP-UY-sbt"/>
+                            <constraint firstItem="kX1-aM-qXo" firstAttribute="centerY" secondItem="WZf-nA-QP5" secondAttribute="centerY" id="pc2-cy-V2v"/>
                             <constraint firstItem="L8n-9Z-VCm" firstAttribute="width" secondItem="Kdi-zj-qXG" secondAttribute="width" multiplier="0.5" id="q6R-i3-L12"/>
-                            <constraint firstItem="Jm9-LV-aQQ" firstAttribute="centerX" secondItem="Kdi-zj-qXG" secondAttribute="centerX" id="wqQ-hu-X6T"/>
                         </constraints>
                     </view>
                     <connections>
@@ -112,8 +122,9 @@
                         <outlet property="answerButton2" destination="IiY-1u-k34" id="hxi-td-Yyh"/>
                         <outlet property="answerButton3" destination="xNR-zx-W1G" id="akE-ZD-RwE"/>
                         <outlet property="answerButton4" destination="cvO-8m-nyQ" id="beb-bf-jw4"/>
+                        <outlet property="grocerNameTextField" destination="kX1-aM-qXo" id="snB-gm-g0v"/>
+                        <outlet property="namePromptLabel" destination="XCG-Ym-9uJ" id="Pf4-do-aZ7"/>
                         <outlet property="promptLabel" destination="WZf-nA-QP5" id="dEa-zc-B8L"/>
-                        <outlet property="startButton" destination="Jm9-LV-aQQ" id="iQG-AL-5T3"/>
                         <outlet property="submitButton" destination="kZq-9L-KGz" id="xu9-nk-x4z"/>
                     </connections>
                 </viewController>

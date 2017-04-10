@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C3236E21E9B10EE009B7B6F /* INCGrocerRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3236E11E9B10EE009B7B6F /* INCGrocerRecord.m */; };
 		2C6931211E77DC7E004C2AEE /* groceries-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */; };
 		2CE162F41E6FF0A400C3B69B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F31E6FF0A400C3B69B /* main.m */; };
 		2CE162F71E6FF0A400C3B69B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F61E6FF0A400C3B69B /* AppDelegate.m */; };
@@ -21,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		175D063C11B643353F421BC8 /* Pods-Grocer Quiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grocer Quiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grocer Quiz/Pods-Grocer Quiz.release.xcconfig"; sourceTree = "<group>"; };
+		2C3236E01E9B10EE009B7B6F /* INCGrocerRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INCGrocerRecord.h; path = Model/INCGrocerRecord.h; sourceTree = "<group>"; };
+		2C3236E11E9B10EE009B7B6F /* INCGrocerRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INCGrocerRecord.m; path = Model/INCGrocerRecord.m; sourceTree = "<group>"; };
 		2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groceries-placeholder.png"; sourceTree = "<group>"; };
 		2CE162EF1E6FF0A400C3B69B /* Grocer Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocer Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE162F31E6FF0A400C3B69B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,9 +100,11 @@
 		2CE163151E76568A00C3B69B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2CE163101E763AE700C3B69B /* zquestions.json */,
 				2CE163121E76568400C3B69B /* INCQuestion.h */,
 				2CE163131E76568400C3B69B /* INCQuestion.m */,
-				2CE163101E763AE700C3B69B /* zquestions.json */,
+				2C3236E01E9B10EE009B7B6F /* INCGrocerRecord.h */,
+				2C3236E11E9B10EE009B7B6F /* INCGrocerRecord.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				2CE162F41E6FF0A400C3B69B /* main.m in Sources */,
 				2CE163141E76568400C3B69B /* INCQuestion.m in Sources */,
 				2CE1630B1E6FF0F000C3B69B /* INCQuizViewController.m in Sources */,
+				2C3236E21E9B10EE009B7B6F /* INCGrocerRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,6 @@
 @implementation INCQuestion
 
 - (id)initWithName:(NSString *)name urlArray:(NSArray *)urls {
-  
   if ([super init]) {
     self.itemName = name;
     self.imageUrlArray = urls;
@@ -20,5 +19,22 @@
   
   return self;
 }
+
+- (id)initWithCoder:(NSCoder *)coder {
+  if ([super init]) {
+    self.itemName = [coder decodeObjectForKey:@"itemName"];
+    self.imageUrlArray = [coder decodeObjectForKey:@"imageUrlArray"];
+    self.answerUrlString = [coder decodeObjectForKey:@"answerUrlString"];
+  }
+
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+  [coder encodeObject:self.itemName forKey:@"itemName"];
+  [coder encodeObject:self.imageUrlArray forKey:@"imageUrlArray"];
+  [coder encodeObject:self.answerUrlString forKey:@"answerUrlString"];
+}
+
 
 @end
