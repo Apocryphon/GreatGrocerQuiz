@@ -10,6 +10,7 @@
 #import "INCQuestion.h"
 #import "INCGrocerRecord.h"
 #import <SDWebImage/UIButton+WebCache.h>
+#import "INCResultsViewController.h"
 
 @interface INCQuizViewController ()
 
@@ -29,16 +30,17 @@
 @property (assign, nonatomic) BOOL isQuizInProgress;
 @property (strong, nonatomic) INCGrocerRecord *currentGrocer;
 @property (assign, nonatomic) NSInteger currentScore;
+@property (strong, nonatomic) NSTimer *quizTimer;
 
 @property (assign, nonatomic) NSInteger currentQuestionNumber;
 @property (strong, nonatomic) INCQuestion *currentQuestion;
 @property (assign, nonatomic) NSInteger currentSelectedAnswerNumber;
 
+#define kQuizTimeLimit 120
+
 @end
 
 @implementation INCQuizViewController
-
-//TODO: two minute timer + countdown clock
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -107,16 +109,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (void)startQuiz {
   self.isQuizInProgress = YES;
 
@@ -133,6 +125,7 @@
   self.currentQuestionNumber = 1;
   self.currentScore = 0;
   [self updateQuestion];
+  [self beginQuizTimer];
 }
 
 
@@ -165,9 +158,9 @@
   NSString *grocerName = self.grocerNameTextField.text;
   
   if (grocerName) {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // load preexisting record to current grocer if name already exists in defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *grocerData = [defaults objectForKey:grocerName];
     if (grocerData) {
       INCGrocerRecord *existingRecordWithGrocerName = [NSKeyedUnarchiver unarchiveObjectWithData:grocerData];
@@ -186,7 +179,6 @@
                                                    }]];
       
       [self presentViewController:retryAlert animated:YES completion:nil];
-      
     } else {
       // create new grocer record
       self.currentGrocer = [[INCGrocerRecord alloc] initWithName:grocerName questionsArray:self.questionsArray];
@@ -218,11 +210,10 @@
   [confirmAnswerAlert addAction:[UIAlertAction actionWithTitle:@"No"
                                                          style:UIAlertActionStyleCancel
                                                        handler:nil]];
-  __weak typeof (self) weakSelf = self;
   [confirmAnswerAlert addAction:[UIAlertAction actionWithTitle:@"Yes"
                                                          style:UIAlertActionStyleDefault
                                                        handler:^(UIAlertAction *action){
-                                                         [weakSelf saveAnswer];
+                                                         [self saveAnswer];
                                                        }]
    ];
 
@@ -239,18 +230,83 @@
   
   // check if we're on the final question
   if (self.currentQuestionNumber == [self.questionsArray count]) {
-    self.currentGrocer.scoresArray = [self.currentGrocer.scoresArray arrayByAddingObject:@(self.currentScore)];
-    self.currentGrocer.attemptsCount++;
-    
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.currentGrocer] forKey:self.currentGrocer.grocerName];
-    [defaults synchronize];
+    [self endQuiz];
   } else {
     self.currentQuestionNumber++;
     [self updateQuestion];
   }
 }
 
+- (void)endQuiz {
+  self.currentGrocer.scoresArray = [self.currentGrocer.scoresArray arrayByAddingObject:@(self.currentScore)];
+  [self stopQuizTimer];
+  [self performSegueWithIdentifier:@"QuizToResults" sender:nil];
+
+}
+
+#pragma mark - Quiz Timer
+
+- (void)beginQuizTimer {
+
+  if (!self.quizTimer) {
+    self.quizTimer = [NSTimer timerWithTimeInterval:kQuizTimeLimit
+                                             target:self
+                                           selector:@selector(quizTimedOut)
+                                           userInfo:nil
+                                            repeats:NO];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.quizTimer forMode: NSDefaultRunLoopMode];
+  }
+}
+
+- (void)stopQuizTimer {
+  if (self.quizTimer) {
+    [self.quizTimer invalidate];
+    self.quizTimer = nil;
+  }
+}
+
+- (void)quizTimedOut {
+  // dismiss any other alerts, if present
+  if (self.presentedViewController) {
+    [self dismissViewControllerAnimated:YES completion:nil];
+  }
+
+  UIAlertController *timeOutAlert = [UIAlertController alertControllerWithTitle:@"Time's up!"
+                                                                        message:@"Two minutes have passed. Your quiz attempt is over."
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+  [timeOutAlert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction *action){
+                                                   [self endQuiz];
+                                                 }]
+  ];
+  [self presentViewController:timeOutAlert animated:YES completion:nil];
+  
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  // Get the new view controller using [segue destinationViewController].
+  // Pass the selected object to the new view controller.
+  if ([segue.identifier isEqualToString:@"QuizToResults"]) {
+    self.currentGrocer.attemptsCount++;
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.currentGrocer] forKey:self.currentGrocer.grocerName];
+    [defaults synchronize];
+    
+    INCResultsViewController *resultsView = (INCResultsViewController *)[segue destinationViewController];
+    resultsView.finalScore = self.currentScore;
+  }
+}
+
+- (IBAction)unwindFromResults:(UIStoryboardSegue*)sender {
+  [self startQuiz];
+
+}
 
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C3236E21E9B10EE009B7B6F /* INCGrocerRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3236E11E9B10EE009B7B6F /* INCGrocerRecord.m */; };
 		2C6931211E77DC7E004C2AEE /* groceries-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */; };
+		2CA037B71EB1D38700E04387 /* INCResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA037B61EB1D38700E04387 /* INCResultsViewController.m */; };
 		2CE162F41E6FF0A400C3B69B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F31E6FF0A400C3B69B /* main.m */; };
 		2CE162F71E6FF0A400C3B69B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE162F61E6FF0A400C3B69B /* AppDelegate.m */; };
 		2CE162FD1E6FF0A400C3B69B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE162FB1E6FF0A400C3B69B /* Main.storyboard */; };
@@ -25,6 +26,8 @@
 		2C3236E01E9B10EE009B7B6F /* INCGrocerRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INCGrocerRecord.h; path = Model/INCGrocerRecord.h; sourceTree = "<group>"; };
 		2C3236E11E9B10EE009B7B6F /* INCGrocerRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INCGrocerRecord.m; path = Model/INCGrocerRecord.m; sourceTree = "<group>"; };
 		2C6931201E77DC7E004C2AEE /* groceries-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "groceries-placeholder.png"; sourceTree = "<group>"; };
+		2CA037B51EB1D38700E04387 /* INCResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCResultsViewController.h; sourceTree = "<group>"; };
+		2CA037B61EB1D38700E04387 /* INCResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCResultsViewController.m; sourceTree = "<group>"; };
 		2CE162EF1E6FF0A400C3B69B /* Grocer Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocer Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE162F31E6FF0A400C3B69B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CE162F51E6FF0A400C3B69B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 			children = (
 				2CE163091E6FF0F000C3B69B /* INCQuizViewController.h */,
 				2CE1630A1E6FF0F000C3B69B /* INCQuizViewController.m */,
+				2CA037B51EB1D38700E04387 /* INCResultsViewController.h */,
+				2CA037B61EB1D38700E04387 /* INCResultsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				2CE162F41E6FF0A400C3B69B /* main.m in Sources */,
 				2CE163141E76568400C3B69B /* INCQuestion.m in Sources */,
 				2CE1630B1E6FF0F000C3B69B /* INCQuizViewController.m in Sources */,
+				2CA037B71EB1D38700E04387 /* INCResultsViewController.m in Sources */,
 				2C3236E21E9B10EE009B7B6F /* INCGrocerRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
