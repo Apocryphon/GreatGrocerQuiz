@@ -14,6 +14,7 @@
 
 @interface INCQuizViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *mainTitle;
 @property (weak, nonatomic) IBOutlet UILabel *namePromptLabel;
 @property (weak, nonatomic) IBOutlet UITextField *grocerNameTextField;
 
@@ -95,13 +96,12 @@
   if (self.currentSelectedAnswerNumber > 0) {
     UIButton *previouslySelectedButton = (UIButton *)[self.view viewWithTag:self.currentSelectedAnswerNumber];
     previouslySelectedButton.selected = NO;
-    // TODO: change appearance of deselected former answer
+    previouslySelectedButton.layer.borderColor = [UIColor clearColor].CGColor;
   }
   
   self.currentSelectedAnswerNumber = nowSelectedButton.tag;
   nowSelectedButton.selected = YES;
-  
-  // TODO: change appearance of selected answer
+  nowSelectedButton.layer.borderColor = [UIColor orangeColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,6 +112,7 @@
 - (void)startQuiz {
   self.isQuizInProgress = YES;
 
+  self.mainTitle.hidden = YES;
   self.namePromptLabel.hidden = YES;
   self.grocerNameTextField.hidden = YES;
 
@@ -141,6 +142,8 @@
     [button sd_setImageWithURL:[NSURL URLWithString:self.currentQuestion.imageUrlArray[answerCounter]]
                       forState:UIControlStateNormal
               placeholderImage:[UIImage imageNamed:@"groceries-placeholder.png"]];
+    button.layer.borderWidth = 3.0;
+    button.layer.borderColor = [UIColor clearColor].CGColor;
     answerCounter++;
   }
   
@@ -157,8 +160,7 @@
   [self.grocerNameTextField resignFirstResponder];
   NSString *grocerName = self.grocerNameTextField.text;
   
-  if (grocerName) {
-    
+  if ([grocerName length] > 0) {
     // load preexisting record to current grocer if name already exists in defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *grocerData = [defaults objectForKey:grocerName];
